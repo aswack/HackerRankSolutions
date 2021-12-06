@@ -1,3 +1,8 @@
+//  HackerRank Java
+//  Data Structures: Java Comparator
+//  https://www.hackerrank.com/challenges/java-comparator/problem
+//  Created by Austin Swack
+//  Created on 12/6/2021
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Arrays;

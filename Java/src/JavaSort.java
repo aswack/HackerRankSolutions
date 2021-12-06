@@ -1,8 +1,8 @@
 //  HackerRank Java
 //  Data Structures: Java Sort
-//
-// Created by Austin Swack
-// Created on 12/5/2021
+//  https://www.hackerrank.com/challenges/java-sort/problem
+//  Created by Austin Swack
+//  Created on 12/5/2021
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
