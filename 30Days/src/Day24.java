@@ -11,18 +11,16 @@ import java.util.Scanner;
 class Day24 {
 
   public static Node removeDuplicates(Node head) {
-    Node newHead = new Node(head.data);
-    Node tempHead = new Node(head.data);
+    Node current = head;
 
-    while (head != null) {
-      if (head.data != tempHead.data) {
-        insert(newHead, head.data);
-        insert(tempHead, head.data);
-        tempHead = tempHead.next;
-      }
-      head = head.next;
+    while (current.next != null) {
+      if (current.next.data == current.data)
+        current.next = current.next.next;
+      else
+        current = current.next;
     }
-    return newHead;
+
+    return head;
   }
 
   public static Node insert(Node head,int data) {
