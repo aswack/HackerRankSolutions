@@ -75,6 +75,7 @@ fabric.properties
 .idea/caches/build_file_checksums.ser
 
 .idea/
+.vscode/
 
 # Reason: https://github.com/joeblau/gitignore.io/issues/186#issuecomment-249601023
 
