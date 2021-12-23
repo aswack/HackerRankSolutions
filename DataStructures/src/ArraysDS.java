@@ -22,8 +22,8 @@ public class ArraysDS {
   }
 
   public static void main(String[] args) throws IOException {
-    BufferedReader bufferedReader = new BufferedReader(new FileReader("DSA/data/ArraysDS.txt"));
-    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("DSA/data/ArraysDSOUTPUT.txt"));
+    BufferedReader bufferedReader = new BufferedReader(new FileReader("DataStructures/data/ArraysDS.txt"));
+    BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("DataStructures/data/ArraysDSOUTPUT.txt"));
 
     int arrCount = Integer.parseInt(bufferedReader.readLine().trim());
 
