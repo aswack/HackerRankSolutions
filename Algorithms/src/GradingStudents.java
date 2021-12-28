@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-class Result2 {
+public class GradingStudents {
 
   public static List<Integer> gradingStudents(List<Integer> grades) {
     for (int i = 0; i < grades.size(); i++) {
@@ -27,9 +27,7 @@ class Result2 {
     }
     return grades;
   }
-}
 
-public class GradingStudents {
   public static void main(String[] args) throws IOException {
     BufferedReader bufferedReader = new BufferedReader(new FileReader("Algorithms/data/GradingStudents.txt"));
     BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("Algorithms/data/GradingStudentsOUTPUT.txt"));
@@ -43,7 +41,7 @@ public class GradingStudents {
       grades.add(gradesItem);
     }
 
-    List<Integer> result = Result2.gradingStudents(grades);
+    List<Integer> result = gradingStudents(grades);
 
     for (int i = 0; i < result.size(); i++) {
       bufferedWriter.write(String.valueOf(result.get(i)));
