@@ -17,6 +17,28 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 public class IceCream {
   public static List<Integer> icecreamParlor(int m, List<Integer> arr) {
+   //O(n) solution
+    ArrayList<Integer> solution = new ArrayList<>();
+
+    for (int i = 0; i < arr.size(); i++) {
+      int remainingCost = m - arr.get(i);
+      int remainingCostIndex = arr.indexOf(remainingCost);
+
+      if (remainingCostIndex == i) {
+        remainingCostIndex = arr.lastIndexOf(remainingCost);
+        if (remainingCostIndex == i) {
+          continue;
+        }
+      }
+
+      if (remainingCostIndex != -1) {
+        solution.add(i + 1);
+        solution.add(remainingCostIndex + 1);
+        break;
+      }
+    }
+
+    /* O(n2) solution
     int leftPointer = 0;
     int rightPointer = 1;
     int cost = arr.get(leftPointer) + arr.get(rightPointer);
@@ -38,6 +60,8 @@ public class IceCream {
 
     solution.add(leftPointer + 1);
     solution.add(rightPointer + 1);
+    return solution;
+    */
     return solution;
   }
 
