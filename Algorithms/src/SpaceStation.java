@@ -3,46 +3,50 @@
 //  https://www.hackerrank.com/challenges/flatland-space-stations/problem
 //  Created by Austin Swack
 //  Created on 12/31/2021
+//  Revised 2/20/2022
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class SpaceStation {
-  private static Scanner scan;
+  static int flatlandSpaceStations(int n, int[] c) {
+    Arrays.sort(c);
+    int endDistance = (n - c[c.length-1]) - 1;
+    int startDistance = c[0];
+    int larger = Math.max(startDistance, endDistance);
+    int maxDistance = 0;
 
-  static {
-    try {
-      scan = new Scanner(new File("Algorithms/data/SpaceStation.txt"));
-    } catch (FileNotFoundException ignored) {
-
+    for (int i = 1; i < c.length; i++) {
+      int distance = (c[i] - c[i-1]) - 1;
+      if (distance > maxDistance) {
+        maxDistance = distance;
+      }
     }
+
+    int midDistance = (maxDistance + 1) /2;
+    return Math.max(midDistance, larger);
   }
 
-  public static void main(String[] args) {
-    int cities = scan.nextInt();
-    List<Integer> stations = new ArrayList<>(scan.nextInt());
+  public static void main(String[] args) throws IOException {
+    Scanner scanner = new Scanner(new File("Algorithms/data/SpaceStation.txt"));
 
-    while(scan.hasNextInt()) {
-      stations.add(scan.nextInt());
-    }
-    Collections.sort(stations);
+    String[] nm = scanner.nextLine().split(" ");
+    int n = Integer.parseInt(nm[0]);
+    int m = Integer.parseInt(nm[1]);
+    int[] c = new int[m];
 
-    int maxDistance = 0;
-    for (int i = 0; i < cities; i++) {
-      int distances = cities;
-      for (int station : stations) {
-        int curDist = Math.abs(i-station);
-        if (curDist < distances) {
-          distances = curDist;
-        }
-      }
-      if (distances > maxDistance) {
-        maxDistance = distances;
-      }
+    String[] cItems = scanner.nextLine().split(" ");
+    scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+    for (int i = 0; i < m; i++) {
+      int cItem = Integer.parseInt(cItems[i]);
+      c[i] = cItem;
     }
-    System.out.println(maxDistance);
+
+    int result = flatlandSpaceStations(n, c);
+    System.out.println(result);
+
+    scanner.close();
   }
 }
