@@ -3,7 +3,6 @@
 //  https://www.hackerrank.com/challenges/sherlock-and-array/problem
 //  Created by Austin Swack
 //  Created on 2/20/2022
-
 import static java.util.stream.Collectors.toList;
 
 import java.io.BufferedReader;
@@ -14,6 +13,27 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Sherlock {
+  //O(n) SOLUTION
+  public static String balancedSums(List<Integer> arr) {
+    int left = 0;
+    int right = 0;
+    for (int i : arr) {
+      right += i;
+    }
+
+    for (int i = 0; i < arr.size(); i++) {
+      right -= arr.get(i);
+      if (i != 0) {
+        left += arr.get(i-1);
+      }
+      if (left == right) {
+        return "YES";
+      }
+    }
+    return "NO";
+  }
+
+  /* NAIVE SOLUTION
   public static String balancedSums(List<Integer> arr) {
     for (int i = 0; i < arr.size(); i++) {
       int left = 0;
@@ -33,6 +53,8 @@ public class Sherlock {
     }
     return "NO";
   }
+
+   */
 
   public static void main(String[] args) throws IOException {
     BufferedReader bufferedReader = new BufferedReader(new FileReader("Algorithms/data/Sherlock.txt"));
