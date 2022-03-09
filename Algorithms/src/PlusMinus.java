@@ -3,6 +3,7 @@
 //  https://www.hackerrank.com/challenges/plus-minus/problem
 //  Created by Austin Swack
 //  Created on 3/6/2022
+
 import static java.util.stream.Collectors.toList;
 
 import java.io.BufferedReader;
@@ -18,13 +19,12 @@ public class PlusMinus {
     int zero = 0;
 
     for (int i : arr) {
-      if (i > 0) {
+      if (i > 0)
         pos++;
-      } else if (i < 0) {
+      else if (i < 0)
         neg++;
-      } else {
+      else
         zero++;
-      }
     }
 
     if (arr.size() != 0) {
@@ -36,9 +36,7 @@ public class PlusMinus {
       System.out.printf("%7.6f%n", negRatio);
       System.out.printf("%7.6f%n", zeroRatio);
     } else {
-      System.out.println(0);
-      System.out.println(0);
-      System.out.println(0);
+      System.out.println("0\n0\n0");
     }
   }
 
